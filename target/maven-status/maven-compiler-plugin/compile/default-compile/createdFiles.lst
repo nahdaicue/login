@@ -1,0 +1,12 @@
+com\nahdaicue\login\persistecia\exceptions\NonexistentEntityException.class
+com\nahdaicue\login\logica\Usuario_.class
+com\nahdaicue\login\persistecia\exceptions\IllegalOrphanException.class
+com\nahdaicue\login\igu\Principal$2.class
+com\nahdaicue\login\persistecia\ControladoraPersistencia.class
+com\nahdaicue\login\logica\Controladora.class
+com\nahdaicue\login\Login.class
+com\nahdaicue\login\persistecia\exceptions\PreexistingEntityException.class
+com\nahdaicue\login\logica\Usuario.class
+com\nahdaicue\login\igu\Principal.class
+com\nahdaicue\login\persistecia\UsuarioJpaController.class
+com\nahdaicue\login\igu\Principal$1.class
