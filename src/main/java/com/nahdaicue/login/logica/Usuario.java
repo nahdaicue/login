@@ -5,27 +5,33 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Usuario implements Serializable {
-    
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String nombreUsuario;
-    private String contrasena;
-    
-    // Constructores
+    private String contrasenia;
+
+    @ManyToOne
+    @JoinColumn(name="fk_rol")
+    private Rol unRol;
+
+    // Constructores------------------------------------------------------------
     public Usuario() {
     }
 
-    public Usuario(int id, String nombreUsuario, String contrasena) {
-        this.id = id;
+    public Usuario(String nombreUsuario, String contrasenia, Rol unRol) {
         this.nombreUsuario = nombreUsuario;
-        this.contrasena = contrasena;
+        this.contrasenia = contrasenia;
+        this.unRol = unRol;
     }
-    
-    // Getters and Setters
+
+    // Getters and Setters------------------------------------------------------
     public int getId() {
         return id;
     }
@@ -42,11 +48,20 @@ public class Usuario implements Serializable {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
+
+    public Rol getUnRol() {
+        return unRol;
+    }
+
+    public void setUnRol(Rol unRol) {
+        this.unRol = unRol;
+    }
+
 }

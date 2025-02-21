@@ -3,6 +3,7 @@
   <persistence-unit name="loginPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.nahdaicue.login.logica.Usuario</class>
+    <class>com.nahdaicue.login.logica.Rol</class>
     <properties>
       <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/login?serverTimezone=UTC"/>
       <property name="jakarta.persistence.jdbc.user" value="root"/>
@@ -10,7 +11,6 @@
       <property name="jakarta.persistence.jdbc.password" value=""/>
       <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
       <property name="jakarta.persistence.provider" value="org.eclipse.persistence.jpa.PersistenceProvider"/>
-
     </properties>
   </persistence-unit>
 </persistence>

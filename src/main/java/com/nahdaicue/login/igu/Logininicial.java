@@ -1,13 +1,13 @@
-
 package com.nahdaicue.login.igu;
 
 import com.nahdaicue.login.logica.Controladora;
+import com.nahdaicue.login.logica.Usuario;
 
-public class Principal extends javax.swing.JFrame {
+public class Logininicial extends javax.swing.JFrame {
 
     Controladora control;
-    
-    public Principal() {
+
+    public Logininicial() {
         initComponents();
         control = new Controladora();
     }
@@ -147,21 +147,40 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        
+
         txtUsuario.setText("");
         txtContrasenia.setText("");
         txtMensaje.setText("");
-        
+
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 
         String usuario = txtUsuario.getText();
         String contrasenia = txtContrasenia.getText();
-        String mensaje = control.validarUsuario(usuario, contrasenia);
+        Usuario user = control.validarUsuario(usuario, contrasenia);
         
-        txtMensaje.setText(mensaje);
-        
+        if (user != null) {
+            String rol = user.getUnRol().getNombreRol();
+            
+            if (rol.equals("admin")) {
+                PrincipalAdmin pAdmin = new PrincipalAdmin(control, user);
+                pAdmin.setVisible(true);
+                pAdmin.setLocationRelativeTo(null);
+                this.dispose();
+            }
+            
+            if (rol.equals("user")) {
+                PrincipalUser pUser = new PrincipalUser(control, user);
+                pUser.setVisible(true);
+                pUser.setLocationRelativeTo(null);
+                this.dispose();
+
+            }
+
+        } else {
+            txtMensaje.setText("Usuario o contraseña invalida");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
 
